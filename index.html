@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAINAN VIBE｜台南年輕人旅遊 LLM Wiki 知識庫</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">TAINAN VIBE <span>// 台南青年旅遊 LLM Wiki</span></a>
+      <span class="wiki-id">Wiki Entries: 2</span>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="hero">
+      <span class="hero-tag">LLM WIKI POWERED KNOWLEDGE BASE</span>
+      <h1>給年輕世代的台南散步與夜生活知識庫</h1>
+      <p>透過 <code>raw/</code> 原始筆記與 <code>wiki/</code> 結構化知識條目持續編譯，精選不排隊的老宅選物、巷弄咖啡與深夜酒吧路線。</p>
+    </header>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">全部知識條目 (2)</button>
+      <button class="filter-btn" data-filter="day">☀️ 日間散步與咖啡</button>
+      <button class="filter-btn" data-filter="night">🌙 深夜微醺與宵夜</button>
+    </div>
+
+    <section class="guide-grid">
+      <a href="pages/west-central.html" class="guide-card" data-category="day">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-day">☀️ 日間散步</span>
+            <span class="wiki-id">WIKI-001</span>
+          </div>
+          <h2>中西區老宅選物與咖啡散步</h2>
+          <p>鑽進蝸牛巷與忠義路老屋群，在昭和古物、純白美術館與夕陽水景之間度過質感午後。</p>
+        </div>
+        <span class="card-cta">閱讀 Wiki 條目 →</span>
+      </a>
+
+      <a href="pages/late-night.html" class="guide-card" data-category="night">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-night">🌙 深夜微醺</span>
+            <span class="wiki-id">WIKI-002</span>
+          </div>
+          <h2>台南深夜微醺與老屋酒吧路線</h2>
+          <p>從神農街燈籠夜色出發，探索藏身老宅的無招牌酒吧，最後用一碗凌晨牛肉湯完美收尾。</p>
+        </div>
+        <span class="card-cta">閱讀 Wiki 條目 →</span>
+      </a>
+    </section>
+
+    <section class="wiki-log-box">
+      <h3>📋 最近 Wiki 編修日誌（同步自 wiki/log.md）</h3>
+      <ul class="wiki-log-list">
+        <li><strong>[2026-11-16]</strong> 新增條目並同步網頁：<code>WIKI-002 台南深夜微醺與老屋酒吧路線</code>（來源：<code>raw/2026-11-tainan-notes.md</code>）</li>
+        <li><strong>[2026-11-16]</strong> 新增條目並同步網頁：<code>WIKI-001 中西區老宅選物與咖啡散步</code>（來源：<code>raw/2026-11-tainan-notes.md</code>）</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 TAINAN VIBE・基於 AGENTS.md 與 LLM Wiki 三層架構建置</p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.guide-card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
